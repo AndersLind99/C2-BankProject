@@ -1,4 +1,14 @@
+package ui;
+
+import domain.BankException;
+import jdk.internal.util.xml.impl.Input;
 import org.junit.jupiter.api.Test;
+import javax.swing.plaf.basic.BasicBorders;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 
 public class Menu {
 
@@ -8,8 +18,20 @@ public class Menu {
 
     boolean running = true;
 
-    private void mainMenuLoop() throws {
+    private void mainMenuLoop() throws BankException {
 
+        while (running) {
+            showMenu();
+            while (Input.getInt("hvad ønsker du?")) {
+
+            case 1:
+                showKonto();
+                break;
+
+
+
+            }
+        }
 
 
     }
