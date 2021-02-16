@@ -2,6 +2,12 @@ import org.junit.jupiter.api.Test;
 
 public class Menu {
 
+    private final String USER ="bankdb_user";
+    private final String PASSWORD ="1234";
+    private final String URL = "jdbc:mysql://localhost:3306/bank?serverTimezone=CET&useSSL=false";
+
+
+
     private static String menu() {
 
         System.out.println("*********************************************");
