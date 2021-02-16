@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // merge domain with database and deleted domain
+        // created customer branch
 
         Customer c1 = new Customer("Jon");
         Account account = new Account(c1);
