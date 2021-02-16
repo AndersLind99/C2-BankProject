@@ -2,7 +2,19 @@ import org.junit.jupiter.api.Test;
 
 public class Menu {
 
-    private static String menu() {
+    //private final String USER = "bankdb_user";
+    //private final String PASSWORD = "1234";
+    //private final String URL =
+
+    boolean running = true;
+
+    private void mainMenuLoop() throws {
+
+
+
+    }
+
+    private void showMenu() {
 
         System.out.println("*********************************************");
         System.out.println("*                                           *");
@@ -18,8 +30,6 @@ public class Menu {
         System.out.println("*                                           *");
         System.out.println("*********************************************");
 
-
-        return menu();
     }
 
 
