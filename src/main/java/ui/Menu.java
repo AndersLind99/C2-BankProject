@@ -62,6 +62,47 @@ public class Menu {
 
     }
 
+    private void showKonto() {
+
+        System.out.println("*********************************************");
+        System.out.println("*                                           *");
+        System.out.println("* Navn:                                     *");
+        System.out.println("*                                           *");
+        System.out.println("* CPR_NR:                                   *");
+        System.out.println("*                                           *");
+        System.out.println("* Adresse:                                  *");
+        System.out.println("*                                           *");
+        System.out.println("* Saldo:                                    *");
+        System.out.println("*                                           *");
+        System.out.println("*                                           *");
+        System.out.println("*                [0] Tilbage                *");
+        System.out.println("*********************************************");
+
+    }
+
+    private void showHævPenge() {
+
+        System.out.println("*********************************************");
+        System.out.println("*                                           *");
+        System.out.println("*       Hvor meget ønsker du at hæve?       *");
+        System.out.println("*                                           *");
+        System.out.println("*                [0] Tilbage                *");
+        System.out.println("*                                           *");
+        System.out.println("*********************************************");
+
+    }
+
+    private void showIndsætPenge() {
+
+        System.out.println("*********************************************");
+        System.out.println("*                                           *");
+        System.out.println("*     Hvor meget ønsker du at indsætte?     *");
+        System.out.println("*                                           *");
+        System.out.println("*                [0] Tilbage                *");
+        System.out.println("*                                           *");
+        System.out.println("*********************************************");
+
+    }
 
 }
 
