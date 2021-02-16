@@ -1,8 +1,9 @@
 package ui;
 
+
 import domain.BankException;
-import jdk.internal.util.xml.impl.Input;
 import org.junit.jupiter.api.Test;
+
 import javax.swing.plaf.basic.BasicBorders;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,12 +23,19 @@ public class Menu {
 
         while (running) {
             showMenu();
-            while (Input.getInt("hvad ønsker du?")) {
-
-            case 1:
-                showKonto();
-                break;
-
+            switch (Input.getInt("Vælg hvad du vil")) {
+                case 1:
+                    showKonto();
+                    break;
+                case 2:
+                    showHævPenge();
+                    break;
+                case 3:
+                    showIndsætPenge();
+                    break;
+                case 4:
+                    running = false;
+                    break;
 
 
             }
