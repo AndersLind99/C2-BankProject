@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // accountmapper branch
+        // Creating all the domain classes
 
         Customer c1 = new Customer("Jon");
         Account account = new Account(c1);
