@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+
+(Admin bruger) .> (Privat konto)
+
+
+(Admin bruger) <- Bank
+(Privat konto) <- Kunde
+
+Bank --> (Hæve)
+(Hæve) <-- Kunde
+
+Bank --> (Indsæt)
+(Indsæt) <-- Kunde
+
+Bank --> (Kontoudskrift)
+(Kontoudskrift) <-- Kunde
+
+@enduml
