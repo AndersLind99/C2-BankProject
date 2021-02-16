@@ -12,9 +12,7 @@ public class Main {
 
         // created customer branch
 
-
         Menu menu = new Menu();
-        menu.login();
 
         menu.getAllCustomers();
 
