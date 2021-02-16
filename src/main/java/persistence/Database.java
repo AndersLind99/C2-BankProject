@@ -17,6 +17,7 @@ public class Database {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
+            System.out.println("Der er en fejl i database constructor");
 
         }
     }
@@ -26,7 +27,7 @@ public class Database {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (Exception e) {
-
+            System.out.println("Der er en fejl i connection");
         }
         return connection;
     }
