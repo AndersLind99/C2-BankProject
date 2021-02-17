@@ -38,7 +38,7 @@ public class Menu {
     }
 
 
-    private void mainMenuLoop() throws BankException {
+    public void menuLoop() throws BankException {
 
         while (running) {
             showMenu();
