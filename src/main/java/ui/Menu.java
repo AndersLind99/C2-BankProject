@@ -66,17 +66,17 @@ public class Menu {
     private void showMenu() {
 
         System.out.println("*********************************************");
-        System.out.println("*                                           *");
-        System.out.println("*               Velkommen til               *");
-        System.out.println("*               Ebberød Bank                *");
-        System.out.println("*                                           *");
-        System.out.println("*                                           *");
-        System.out.println("*                Konto     [1]              *");
-        System.out.println("*              Hæv penge   [2]              *");
-        System.out.println("*             Indsæt penge [3]              *");
-        System.out.println("*                Exit      [4]              *");
-        System.out.println("*                                           *");
-        System.out.println("*                                           *");
+        System.out.println("                                             ");
+        System.out.println("                Velkommen til                ");
+        System.out.println("                Ebberød Bank                 ");
+        System.out.println("                                             ");
+        System.out.println("                                             ");
+        System.out.println("                 Konto     [1]               ");
+        System.out.println("               Hæv penge   [2]               ");
+        System.out.println("              Indsæt penge [3]               ");
+        System.out.println("                 Exit      [4]               ");
+        System.out.println("                                             ");
+        System.out.println("                                             ");
         System.out.println("*********************************************");
 
     }
@@ -84,17 +84,16 @@ public class Menu {
     private void showKonto() {
 
         System.out.println("*********************************************");
-        System.out.println("*                                           *");
-        System.out.println("* Navn:                                     *");
-        System.out.println("*                                           *");
-        System.out.println("* CPR_NR:                                   *");
-        System.out.println("*                                           *");
-        System.out.println("* Adresse:                                  *");
-        System.out.println("*                                           *");
-        System.out.println("* Saldo:                                    *");
-        System.out.println("*                                           *");
-        System.out.println("*                                           *");
-        System.out.println("*                [0] Tilbage                *");
+        System.out.println("                                             ");
+        System.out.println("  Navn:                                      ");
+        System.out.println("                                             ");
+        System.out.println("  CPR_NR:                                    ");
+        System.out.println("                                             ");
+        System.out.println("  Adresse:                                   ");
+        System.out.println("                                             ");
+        System.out.println("  Saldo:                                     ");
+        System.out.println("                                             ");
+        System.out.println("                 [0] Tilbage                 ");
         System.out.println("*********************************************");
 
     }
@@ -102,11 +101,11 @@ public class Menu {
     private void showHævPenge() {
 
         System.out.println("*********************************************");
-        System.out.println("*                                           *");
-        System.out.println("*       Hvor meget ønsker du at hæve?       *");
-        System.out.println("*                                           *");
-        System.out.println("*                [0] Tilbage                *");
-        System.out.println("*                                           *");
+        System.out.println("                                             ");
+        System.out.println("        Hvor meget ønsker du at hæve?        ");
+        System.out.println("                                             ");
+        System.out.println("                 [0] Tilbage                 ");
+        System.out.println("                                             ");
         System.out.println("*********************************************");
 
     }
