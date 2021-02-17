@@ -87,12 +87,10 @@ public class Menu {
         System.out.println("                Velkommen til                ");
         System.out.println("                Ebberød Bank                 ");
         System.out.println("                                             ");
-        System.out.println("                                             ");
         System.out.println("                 Konto     [1]               ");
         System.out.println("               Hæv penge   [2]               ");
         System.out.println("              Indsæt penge [3]               ");
         System.out.println("                 Exit      [4]               ");
-        System.out.println("                                             ");
         System.out.println("                                             ");
         System.out.println("*********************************************");
 
@@ -125,7 +123,7 @@ public class Menu {
         System.out.println("                                             ");
         System.out.println("*********************************************");
         int PengeHævet = Input.getInt("");
-        int a = customer_saldo - PengeHævet;
+        int a = dbCustomerMapper.getCustomerById().getCustomer_saldo() - PengeHævet;
 
         if (a >= 0) {
             System.out.println("du har succesfuldt hævet" + PengeHævet + " du har nu " + a + ",- på din konto");
@@ -145,7 +143,7 @@ public class Menu {
         System.out.println("*                                           *");
         System.out.println("*********************************************");
         int  PengeIndsat = Input.getInt("");
-        int b = customer_saldo + PengeIndsat;
+        int b = dbCustomerMapper.getCustomerById().getCustomer_saldo() + PengeIndsat;
 
         System.out.println("du har succesfuldt indsat" + PengeIndsat + " du har nu " + b + ",- på din konto");
 
