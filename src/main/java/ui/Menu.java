@@ -70,6 +70,19 @@ public class Menu {
         System.out.println("                Velkommen til                ");
         System.out.println("                Ebberød Bank                 ");
         System.out.println("                                             ");
+        System.out.println("               skriv dit login               ");
+        System.out.println("                                             ");
+        System.out.println("*********************************************");
+
+    }
+
+    private void showMainMenu() {
+
+        System.out.println("*********************************************");
+        System.out.println("                                             ");
+        System.out.println("                Velkommen til                ");
+        System.out.println("                Ebberød Bank                 ");
+        System.out.println("                                             ");
         System.out.println("                                             ");
         System.out.println("                 Konto     [1]               ");
         System.out.println("               Hæv penge   [2]               ");
