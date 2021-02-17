@@ -1,6 +1,6 @@
 package ui;
 
-
+import domain.Transaction;
 import domain.BankException;
 import domain.Customer;
 import org.junit.jupiter.api.Test;
@@ -12,19 +12,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Menu {
 
-    private final String USER ="bankdb_user";
-    private final String PASSWORD ="1234";
+    private final String USER = "bankdb_user";
+    private final String PASSWORD = "1234";
     private final String URL = "jdbc:mysql://localhost:3306/bank?serverTimezone=CET&useSSL=false";
 
     boolean running = true;
 
-    Database database = new Database(USER,PASSWORD,URL);
+    Database database = new Database(USER, PASSWORD, URL);
     DbCustomerMapper dbCustomerMapper = new DbCustomerMapper(database);
-
+    Scanner scanner = new Scanner(System.in);
 
 
     public void getAllCustomers() {
@@ -63,20 +64,23 @@ public class Menu {
 
     }
 
+
+//    private void showMenu() {
+//
+//        System.out.println("*********************************************");
+//        System.out.println("                                             ");
+//        System.out.println("                Velkommen til                ");
+//        System.out.println("                Ebberød Bank                 ");
+//        System.out.println("                                             ");
+//        System.out.println("               skriv dit login               ");
+//        System.out.println("                                             ");
+//        System.out.println("*********************************************");
+//
+//
+//
+//    }
+
     private void showMenu() {
-
-        System.out.println("*********************************************");
-        System.out.println("                                             ");
-        System.out.println("                Velkommen til                ");
-        System.out.println("                Ebberød Bank                 ");
-        System.out.println("                                             ");
-        System.out.println("               skriv dit login               ");
-        System.out.println("                                             ");
-        System.out.println("*********************************************");
-
-    }
-
-    private void showMainMenu() {
 
         System.out.println("*********************************************");
         System.out.println("                                             ");
@@ -115,11 +119,19 @@ public class Menu {
 
         System.out.println("*********************************************");
         System.out.println("                                             ");
-        System.out.println("        Hvor meget ønsker du at hæve?        ");
+        System.out.println("        hvor meget ønsker du at hæve?        ");
         System.out.println("                                             ");
         System.out.println("                 [0] Tilbage                 ");
         System.out.println("                                             ");
         System.out.println("*********************************************");
+        int PengeHævet = Input.getInt("");
+        int a = customer_saldo - PengeHævet;
+
+        if (a >= 0) {
+            System.out.println("du har succesfuldt hævet" + PengeHævet + " du har nu " + a + ",- på din konto");
+        } else {
+            System.out.println("du kan ikke hæve beløbet kontakt venligst din bank");
+        }
 
     }
 
@@ -132,8 +144,14 @@ public class Menu {
         System.out.println("*                [0] Tilbage                *");
         System.out.println("*                                           *");
         System.out.println("*********************************************");
+        int  PengeIndsat = Input.getInt("");
+        int b = customer_saldo + PengeIndsat;
+
+        System.out.println("du har succesfuldt indsat" + PengeIndsat + " du har nu " + b + ",- på din konto");
 
     }
 
 }
+
+
 
