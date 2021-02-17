@@ -12,7 +12,7 @@ public class Main {
 
         // created customer branch
 
-        Menu menu = new Menu();
+        ui.Menu menu = new ui.Menu();
 
         menu.getAllCustomers();
 
