@@ -1,19 +1,31 @@
 package domain;
 
+import java.sql.Timestamp;
+
 public class Transaction {
     private int transaction_id;
-    private int customer_id;
     private int transaction_amount;
+    private int customer_id;
+    private Timestamp date;
 
-    public Transaction(int transaction_id,int acccount_id, int transaction_amount) {
+    public Transaction(int transaction_id, int transaction_amount,int customer_id,Timestamp date ) {
         this.transaction_id = transaction_id;
-        this.customer_id = acccount_id;
         this.transaction_amount = transaction_amount;
+        this.customer_id = customer_id;
+        this.date = date;
     }
 
     public Transaction(int transaction_amount, int customer_id) {
         this.transaction_amount = transaction_amount;
         this.customer_id = customer_id;
+    }
+
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
     }
 
     public int getTransaction_id() {
@@ -40,4 +52,12 @@ public class Transaction {
         this.transaction_amount = transaction_amount;
     }
 
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transaction_id=" + transaction_id +
+                ", transaction_amount=" + transaction_amount +
+                ", customer_id=" + customer_id +
+                '}';
+    }
 }

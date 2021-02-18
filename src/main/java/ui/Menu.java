@@ -68,6 +68,11 @@ public class Menu {
                             System.out.println("Tak for i dag");
                             running = false;
                             break;
+                        case 5:
+                            getCustomerTransactions();
+                            break;
+
+
                     }
                 }
             }
@@ -75,6 +80,19 @@ public class Menu {
         }
     }
 
+
+    private void getCustomerTransactions(){
+        List<Transaction> transactionList;
+        transactionList = dbTransactionMapper.getTransactionByCustomerId(id);
+        for (Transaction transaction : transactionList) {
+            System.out.println("Transaction id: " + transaction.getTransaction_id());
+            System.out.println("customer id: " + transaction.getCustomer_id());
+            System.out.println("Transaction amount: " + transaction.getTransaction_amount() + " kr");
+            System.out.println("Transactions dato: " + transaction.getDate());
+
+        }
+
+    }
 
 
     private void showMenu() {
