@@ -67,11 +67,11 @@ public class Menu {
                             running = false;
                             break;
                     }
-                }
+                } break;
             } else {
                 System.out.println("Der skete en fejl prøv igen");
-                running = false;
-                break;
+            //    running = false;
+              //  break;
             }
         }
     }

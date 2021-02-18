@@ -136,7 +136,7 @@ public class DbCustomerMapper {
         } catch (SQLException e) {
             System.out.println("kære Mario, der er sket en databasefejl");
         }
-        return null;
+        return customer;
     }
 
 
