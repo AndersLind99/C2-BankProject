@@ -43,16 +43,20 @@ public class Menu {
     }
 
     public void login() throws BankException {
+        List<Customer> customerList = dbCustomerMapper.getAllCustomers();
+
         showMenu();
-        int id = Input.getInt("");
+        id = Input.getInt("");
         dbCustomerMapper.getCustomerById(id);
 
-        if (true) {
-            mainmenuLoop();
-        } else {
-            running = false;
+        for (Customer customer : customerList) {
+            if (id == customer.getCustomer_id()) {
+                mainmenuLoop();
+            } else {
+                System.out.println("Der skete en fejl prøv igen");
+                login();
+            }
         }
-
     }
 
     public void mainmenuLoop() throws BankException {
@@ -146,6 +150,7 @@ public class Menu {
         } else {
             System.out.println("du kan ikke hæve beløbet kontakt venligst din bank");
         }
+
 
     }
 
