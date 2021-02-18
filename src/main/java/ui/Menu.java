@@ -100,15 +100,14 @@ public class Menu {
 
         System.out.println("*********************************************");
         System.out.println("                                             ");
-        System.out.println("  Navn:                                      ");
+        System.out.println("  Navn: " + dbCustomerMapper.getCustomerById().getCustomer_name());
         System.out.println("                                             ");
-        System.out.println("  CPR_NR:                                    ");
+        System.out.println("  CPR_NR: " + dbCustomerMapper.getCustomerById().getCustomer_birthday());
         System.out.println("                                             ");
-        System.out.println("  Adresse:                                   ");
+        System.out.println("  Adresse: " + dbCustomerMapper.getCustomerById().getCustomer_address());
         System.out.println("                                             ");
-        System.out.println("  Saldo:                                     ");
+        System.out.println("  Saldo: " + dbCustomerMapper.getCustomerById().getCustomer_saldo());
         System.out.println("                                             ");
-        System.out.println("                 [0] Tilbage                 ");
         System.out.println("*********************************************");
 
     }
@@ -118,8 +117,6 @@ public class Menu {
         System.out.println("*********************************************");
         System.out.println("                                             ");
         System.out.println("        hvor meget ønsker du at hæve?        ");
-        System.out.println("                                             ");
-        System.out.println("                 [0] Tilbage                 ");
         System.out.println("                                             ");
         System.out.println("*********************************************");
         int PengeHævet = Input.getInt("");
@@ -138,8 +135,6 @@ public class Menu {
         System.out.println("*********************************************");
         System.out.println("*                                           *");
         System.out.println("*     Hvor meget ønsker du at indsætte?     *");
-        System.out.println("*                                           *");
-        System.out.println("*                [0] Tilbage                *");
         System.out.println("*                                           *");
         System.out.println("*********************************************");
         int  PengeIndsat = Input.getInt("");
