@@ -137,7 +137,7 @@ public class Menu {
         System.out.println("*     Hvor meget ønsker du at indsætte?     *");
         System.out.println("*                                           *");
         System.out.println("*********************************************");
-        int  PengeIndsat = Input.getInt("");
+        int PengeIndsat = Input.getInt("");
         int b = dbCustomerMapper.getCustomerById().getCustomer_saldo() + PengeIndsat;
 
         System.out.println("du har succesfuldt indsat" + PengeIndsat + " du har nu " + b + ",- på din konto");
