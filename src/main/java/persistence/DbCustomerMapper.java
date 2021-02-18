@@ -36,10 +36,7 @@ public class DbCustomerMapper {
                 }
             } catch (SQLException e) {
                 System.out.println("der er sket en databasefejl");
-
             }
-
-
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -139,7 +136,7 @@ public class DbCustomerMapper {
         } catch (SQLException e) {
             System.out.println("kære Mario, der er sket en databasefejl");
         }
-        return customer;
+        return null;
     }
 
 

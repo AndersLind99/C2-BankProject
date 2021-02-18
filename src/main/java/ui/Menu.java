@@ -31,7 +31,6 @@ public class Menu {
     int id = 0;
 
 
-
     public void getAllCustomers() {
 
         List<Customer> customerList = this.dbCustomerMapper.getAllCustomers();
@@ -51,39 +50,58 @@ public class Menu {
 
         for (Customer customer : customerList) {
             if (id == customer.getCustomer_id()) {
-                mainmenuLoop();
+                while (running) {
+                    showMainMenu();
+                    switch (Input.getInt("Vælg hvad du vil")) {
+                        case 1:
+                            showKonto();
+                            break;
+                        case 2:
+                            showHævPenge();
+                            break;
+                        case 3:
+                            showIndsætPenge();
+                            break;
+                        case 4:
+                            System.out.println("Tak for i dag");
+                            running = false;
+                            break;
+                    }
+                }
             } else {
                 System.out.println("Der skete en fejl prøv igen");
-                login();
+                running = false;
+                break;
             }
         }
     }
 
-    public void mainmenuLoop() throws BankException {
-
-
-        while (running) {
-            showMainMenu();
-            switch (Input.getInt("Vælg hvad du vil")) {
-                case 1:
-                    showKonto();
-                    break;
-                case 2:
-                    showHævPenge();
-                    break;
-                case 3:
-                    showIndsætPenge();
-                    break;
-                case 4:
-                    running = false;
-                    break;
-
-
-            }
-        }
-
-
-    }
+//    public void mainmenuLoop() throws BankException {
+//
+//
+//        running = true;
+//        while (running) {
+//            showMainMenu();
+//            switch (Input.getInt("Vælg hvad du vil")) {
+//                case 1:
+//                    showKonto();
+//                    break;
+//                case 2:
+//                    showHævPenge();
+//                    break;
+//                case 3:
+//                    showIndsætPenge();
+//                    break;
+//                case 4:
+//                    running = false;
+//                    break;
+//
+//
+//            }
+//        }
+//
+//
+//    }
 
 
     private void showMenu() {
@@ -96,7 +114,6 @@ public class Menu {
         System.out.println("               skriv dit login               ");
         System.out.println("                                             ");
         System.out.println("*********************************************");
-
 
 
     }
@@ -146,11 +163,12 @@ public class Menu {
         int a = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() - PengeHævet;
 
         if (a >= 0) {
-            System.out.println("du har succesfuldt hævet" + PengeHævet + " du har nu " + a + ",- på din konto");
+            System.out.println("du har succesfuldt hævet " + PengeHævet + " du har nu " + a + ",- på din konto");
         } else {
             System.out.println("du kan ikke hæve beløbet kontakt venligst din bank");
         }
 
+        running = false;
 
     }
 
@@ -165,6 +183,8 @@ public class Menu {
         int b = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() + PengeIndsat;
 
         System.out.println("du har succesfuldt indsat" + PengeIndsat + " du har nu " + b + ",- på din konto");
+
+        running = false;
 
     }
 
