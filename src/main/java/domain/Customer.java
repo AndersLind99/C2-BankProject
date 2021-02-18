@@ -73,4 +73,5 @@ public class Customer {
     public void setCustomer_saldo(int customer_saldo) {
         this.customer_saldo = customer_saldo;
     }
+
 }

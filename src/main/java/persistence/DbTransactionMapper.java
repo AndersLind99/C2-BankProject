@@ -1,4 +1,4 @@
 package persistence;
 
-public class DbTransactionMapper {
+public class DbTransactionMapper{
 }
