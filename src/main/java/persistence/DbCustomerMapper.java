@@ -91,7 +91,7 @@ public class DbCustomerMapper {
 
     public boolean updateCustomer(Customer customer) {
         boolean result = false;
-        String sql = "update bank.customer set customer_id = ?, customer_name = ?, customer_birthday = ?, customer_phone = ?, customer_address = ?, customer_saldo = ? where customeer_id = ?";
+        String sql = "update bank.customer set customer_id = ?, customer_name = ?, customer_birthday = ?, customer_phone = ?, customer_address = ?, customer_saldo = ? where customer_id = ?";
         try (Connection connection = database.connect()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, customer.getCustomer_id());
@@ -114,6 +114,9 @@ public class DbCustomerMapper {
         }
         return result;
     }
+
+
+
 
     public Customer getCustomerById(int customer_id) {
         Customer customer = null;

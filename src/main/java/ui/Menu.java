@@ -67,41 +67,12 @@ public class Menu {
                             running = false;
                             break;
                     }
-                } break;
-            } else {
-                System.out.println("Der skete en fejl prøv igen");
-            //    running = false;
-              //  break;
+                }
             }
+
         }
     }
 
-//    public void mainmenuLoop() throws BankException {
-//
-//
-//        running = true;
-//        while (running) {
-//            showMainMenu();
-//            switch (Input.getInt("Vælg hvad du vil")) {
-//                case 1:
-//                    showKonto();
-//                    break;
-//                case 2:
-//                    showHævPenge();
-//                    break;
-//                case 3:
-//                    showIndsætPenge();
-//                    break;
-//                case 4:
-//                    running = false;
-//                    break;
-//
-//
-//            }
-//        }
-//
-//
-//    }
 
 
     private void showMenu() {
@@ -162,6 +133,24 @@ public class Menu {
         int PengeHævet = Input.getInt("");
         int a = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() - PengeHævet;
 
+        Customer customer = null;
+        try {
+            customer = dbCustomerMapper.getCustomerById(id);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        customer.setCustomer_saldo(a);
+        boolean result = false;
+
+        try {
+            result = dbCustomerMapper.updateCustomer(customer);
+
+        } catch (Exception e){
+
+            e.printStackTrace();
+        }
+
         if (a >= 0) {
             System.out.println("du har succesfuldt hævet " + PengeHævet + " du har nu " + a + ",- på din konto");
         } else {
@@ -182,7 +171,27 @@ public class Menu {
         int PengeIndsat = Input.getInt("");
         int b = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() + PengeIndsat;
 
-        System.out.println("du har succesfuldt indsat" + PengeIndsat + " du har nu " + b + ",- på din konto");
+
+        Customer customer = null;
+        try {
+            customer = dbCustomerMapper.getCustomerById(id);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        customer.setCustomer_saldo(b);
+        boolean result = false;
+
+        try {
+            result = dbCustomerMapper.updateCustomer(customer);
+
+        } catch (Exception e){
+
+            e.printStackTrace();
+        }
+
+
+        System.out.println("du har succesfuldt indsat " + PengeIndsat + " du har nu " + b + ",- på din konto");
 
         running = false;
 
