@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import persistence.Database;
 import persistence.DbCustomerMapper;
 import persistence.DbAccountMapper;
+import persistence.DbTransactionMapper;
 
 import javax.swing.plaf.basic.BasicBorders;
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class Menu {
 
     Database database = new Database(USER, PASSWORD, URL);
     DbCustomerMapper dbCustomerMapper = new DbCustomerMapper(database);
+    DbTransactionMapper dbTransactionMapper = new DbTransactionMapper(database);
     Scanner scanner = new Scanner(System.in);
 
     int id = 0;
@@ -130,8 +132,8 @@ public class Menu {
         System.out.println("        hvor meget ønsker du at hæve?        ");
         System.out.println("                                             ");
         System.out.println("*********************************************");
-        int PengeHævet = Input.getInt("");
-        int a = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() - PengeHævet;
+        int pengeHævet = Input.getInt("");
+        int a = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() - pengeHævet;
 
         Customer customer = null;
         try {
@@ -151,8 +153,12 @@ public class Menu {
             e.printStackTrace();
         }
 
+        Transaction transaction = new Transaction(pengeHævet,id);
+
+        dbTransactionMapper.newTransaction(transaction);
+
         if (a >= 0) {
-            System.out.println("du har succesfuldt hævet " + PengeHævet + " du har nu " + a + ",- på din konto");
+            System.out.println("du har succesfuldt hævet " + pengeHævet + " du har nu " + a + ",- på din konto");
         } else {
             System.out.println("du kan ikke hæve beløbet kontakt venligst din bank");
         }
@@ -168,8 +174,8 @@ public class Menu {
         System.out.println("*     Hvor meget ønsker du at indsætte?     *");
         System.out.println("*                                           *");
         System.out.println("*********************************************");
-        int PengeIndsat = Input.getInt("");
-        int b = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() + PengeIndsat;
+        int pengeIndsat = Input.getInt("");
+        int b = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() + pengeIndsat;
 
 
         Customer customer = null;
@@ -190,8 +196,11 @@ public class Menu {
             e.printStackTrace();
         }
 
+        Transaction transaction = new Transaction(pengeIndsat,id);
 
-        System.out.println("du har succesfuldt indsat " + PengeIndsat + " du har nu " + b + ",- på din konto");
+        dbTransactionMapper.newTransaction(transaction);
+
+        System.out.println("du har succesfuldt indsat " + pengeIndsat + " du har nu " + b + ",- på din konto");
 
         running = false;
 
