@@ -163,6 +163,12 @@ public class Menu {
         customer.setCustomer_saldo(a);
         boolean result = false;
 
+
+        if (a >= 0) {
+
+            Transaction transaction = new Transaction(pengeHævet,id);
+        dbTransactionMapper.newTransaction(transaction);
+
         try {
             result = dbCustomerMapper.updateCustomer(customer);
 
@@ -171,11 +177,6 @@ public class Menu {
             e.printStackTrace();
         }
 
-        Transaction transaction = new Transaction(pengeHævet,id);
-
-        dbTransactionMapper.newTransaction(transaction);
-
-        if (a >= 0) {
             System.out.println("du har succesfuldt hævet " + pengeHævet + " du har nu " + a + ",- på din konto");
         } else {
             System.out.println("du kan ikke hæve beløbet kontakt venligst din bank");
