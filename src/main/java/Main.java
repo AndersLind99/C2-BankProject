@@ -17,7 +17,7 @@ public class Main {
         // created codewithme branch
 
         Menu menu = new Menu();
-        menu.menuLoop();
+        menu.login();
 
         menu.getAllCustomers();
 

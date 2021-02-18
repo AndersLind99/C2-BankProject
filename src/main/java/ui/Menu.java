@@ -6,6 +6,7 @@ import domain.Customer;
 import org.junit.jupiter.api.Test;
 import persistence.Database;
 import persistence.DbCustomerMapper;
+import persistence.DbAccountMapper;
 
 import javax.swing.plaf.basic.BasicBorders;
 import java.io.IOException;
@@ -27,6 +28,9 @@ public class Menu {
     DbCustomerMapper dbCustomerMapper = new DbCustomerMapper(database);
     Scanner scanner = new Scanner(System.in);
 
+    int id = 0;
+
+
 
     public void getAllCustomers() {
 
@@ -38,11 +42,24 @@ public class Menu {
 
     }
 
+    public void login() throws BankException {
+        showMenu();
+        int id = Input.getInt("");
+        dbCustomerMapper.getCustomerById(id);
 
-    public void menuLoop() throws BankException {
+        if (true) {
+            mainmenuLoop();
+        } else {
+            running = false;
+        }
+
+    }
+
+    public void mainmenuLoop() throws BankException {
+
 
         while (running) {
-            showMenu();
+            showMainMenu();
             switch (Input.getInt("Vælg hvad du vil")) {
                 case 1:
                     showKonto();
@@ -65,22 +82,22 @@ public class Menu {
     }
 
 
-//    private void showMenu() {
-//
-//        System.out.println("*********************************************");
-//        System.out.println("                                             ");
-//        System.out.println("                Velkommen til                ");
-//        System.out.println("                Ebberød Bank                 ");
-//        System.out.println("                                             ");
-//        System.out.println("               skriv dit login               ");
-//        System.out.println("                                             ");
-//        System.out.println("*********************************************");
-//
-//
-//
-//    }
-
     private void showMenu() {
+
+        System.out.println("*********************************************");
+        System.out.println("                                             ");
+        System.out.println("                Velkommen til                ");
+        System.out.println("                Ebberød Bank                 ");
+        System.out.println("                                             ");
+        System.out.println("               skriv dit login               ");
+        System.out.println("                                             ");
+        System.out.println("*********************************************");
+
+
+
+    }
+
+    private void showMainMenu() {
 
         System.out.println("*********************************************");
         System.out.println("                                             ");
@@ -100,13 +117,15 @@ public class Menu {
 
         System.out.println("*********************************************");
         System.out.println("                                             ");
-        System.out.println("  Navn: " + dbCustomerMapper.getCustomerById().getCustomer_name());
+        System.out.println("  Navn: " + dbCustomerMapper.getCustomerById(id).getCustomer_name());
         System.out.println("                                             ");
-        System.out.println("  CPR_NR: " + dbCustomerMapper.getCustomerById().getCustomer_birthday());
+        System.out.println("  CPR_NR: " + dbCustomerMapper.getCustomerById(id).getCustomer_birthday());
         System.out.println("                                             ");
-        System.out.println("  Adresse: " + dbCustomerMapper.getCustomerById().getCustomer_address());
+        System.out.println("  Telefon: " + dbCustomerMapper.getCustomerById(id).getCustomer_phone());
         System.out.println("                                             ");
-        System.out.println("  Saldo: " + dbCustomerMapper.getCustomerById().getCustomer_saldo());
+        System.out.println("  Adresse: " + dbCustomerMapper.getCustomerById(id).getCustomer_address());
+        System.out.println("                                             ");
+        System.out.println("  Saldo: " + dbCustomerMapper.getCustomerById(id).getCustomer_saldo());
         System.out.println("                                             ");
         System.out.println("*********************************************");
 
@@ -120,7 +139,7 @@ public class Menu {
         System.out.println("                                             ");
         System.out.println("*********************************************");
         int PengeHævet = Input.getInt("");
-        int a = dbCustomerMapper.getCustomerById().getCustomer_saldo() - PengeHævet;
+        int a = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() - PengeHævet;
 
         if (a >= 0) {
             System.out.println("du har succesfuldt hævet" + PengeHævet + " du har nu " + a + ",- på din konto");
@@ -138,7 +157,7 @@ public class Menu {
         System.out.println("*                                           *");
         System.out.println("*********************************************");
         int PengeIndsat = Input.getInt("");
-        int b = dbCustomerMapper.getCustomerById().getCustomer_saldo() + PengeIndsat;
+        int b = dbCustomerMapper.getCustomerById(id).getCustomer_saldo() + PengeIndsat;
 
         System.out.println("du har succesfuldt indsat" + PengeIndsat + " du har nu " + b + ",- på din konto");
 
